@@ -73,7 +73,7 @@ if (isset($_POST['login'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inventori</title>
+    <title>INVENTORI</title>
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" type="text/css" href="css/index.css">
