@@ -112,7 +112,7 @@ if (isset($_GET['edit_id'])) {
     <h2><?php echo $editKategori ? "Edit Kategori" : "List of Kategori"; ?></h2>
 
     <?php if (!$editKategori): ?>
-        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createkategori.php" role="button">New Kategori</a>
+        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createkategori.php" role="button"><i class="fas fa-plus"></i>New Kategori</a>
         <br><br>
 
         <form method="get" action="">
