@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['delete_id'])) {
 <div class="container my-2">
     <h2><?php echo $editMode ? "Edit User" : "List of Users"; ?></h2>
     <?php if (!$editMode): ?>
-        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createuser.php" role="button">New User</a>
+        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createuser.php" role="button"><i class="fas fa-plus"></i>New User</a>
         <br><br>
         <form method="get" action="">
             <div class="input-group mb-3">
