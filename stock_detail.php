@@ -151,39 +151,48 @@ $result_lokasi = $connection->query($sql_lokasi);
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>" title="Edit Status"><i class='fas fa-pencil-alt'></i></a>
         </button>
 
-        <!-- Modal untuk Edit Status -->
-        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel<?php echo $row['id']; ?>"><i class='fas fa-pencil-alt'></i> Edit Status</h5>
-                        <button type="button" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <!-- Modal untuk Edit Status -->
+<div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel<?php echo $row['id']; ?>"><i class='fas fa-pencil-alt'></i> Edit Status</h5>
+                <button type="button" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateForm<?php echo $row['id']; ?>" action="update_status.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="stock_id" value="<?php echo $stock_id; ?>">
+                    
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Pilih Status</label>
+                        <select style="border: 1px solid black; background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-select" name="status" id="status">
+                            <option value="active" <?php if ($row['status'] == 'active') echo 'selected'; ?>>Active</option>
+                            <option value="none active" <?php if ($row['status'] == 'none active') echo 'selected'; ?>>none active</option>
+                        </select>
                     </div>
-                    <div class="modal-body">
-                        <form id="updateForm<?php echo $row['id']; ?>" action="update_status.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <input type="hidden" name="stock_id" value="<?php echo $stock_id; ?>">
-                            <div class="mb-3">
-                                <label for="status" class="form-label">Pilih Status</label>
-                                <select style="border: 1px solid black; background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-select" name="status" id="status">
-                                    <option value="active" <?php if ($row['status'] == 'active') echo 'selected'; ?>>Active</option>
-                                    <option value="none active" <?php if ($row['status'] == 'none active') echo 'selected'; ?>>none active</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="keterangan" class="form-label">Keterangan</label>
-                                <textarea style="border: 1px solid black; background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-control" name="keterangan" id="keterangan" rows="3"><?php echo htmlspecialchars($row['keterangan']); ?></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <!-- Change this button to call confirmUpdate -->
-                                <button type="submit" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary">Update Status</button>
-                            </div>
-                        </form>
+
+                    <!-- Tambahkan teks area untuk Deskripsi -->
+                    <div class="mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea style="border: 1px solid black; background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-control" name="deskripsi" id="deskripsi" rows="3"><?php echo htmlspecialchars($row['deskripsi']); ?></textarea>
                     </div>
-                </div>
+
+                    <div class="mb-3">
+                        <label for="keterangan" class="form-label">Keterangan</label>
+                        <textarea style="border: 1px solid black; background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-control" name="keterangan" id="keterangan" rows="3"><?php echo htmlspecialchars($row['keterangan']); ?></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary">Update Status</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+</div>
+
     <?php else: ?>
         <span class="text-muted">Tidak bisa diedit</span>
     <?php endif; ?>

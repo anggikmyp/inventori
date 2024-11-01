@@ -11,18 +11,19 @@ if (!isset($_SESSION['session_username'])) {
 // Ambil ID, status, dan keterangan dari form
 $id = isset($_POST['id']) ? $_POST['id'] : null;
 $status = isset($_POST['status']) ? $_POST['status'] : null;
+$deskripsi = isset($_POST['deskripsi']) ? $_POST['deskripsi'] : null;
 $keterangan = isset($_POST['keterangan']) ? $_POST['keterangan'] : null;
 
 // Pastikan ID dan status ada
 if ($id !== null && $status !== null) {
     // Update status dan keterangan di tabel stock_detail
-    $sql = "UPDATE stock_detail SET status = ?, keterangan = ? WHERE id = ?";
+    $sql = "UPDATE stock_detail SET status = ?, deskripsi = ?, keterangan = ? WHERE id = ?";
     $stmt = $connection->prepare($sql);
     if ($stmt === false) {
         die('Error preparing statement: ' . $connection->error);
     }
     
-    $stmt->bind_param("ssi", $status, $keterangan, $id);
+    $stmt->bind_param("sssi", $status, $deskripsi, $keterangan, $id);
     if ($stmt->execute()) {
         $_SESSION['message'] = "Status berhasil diperbarui.";
     } else {
