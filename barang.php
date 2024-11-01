@@ -184,15 +184,15 @@ require "./header.php";
 <?php require "./navbar.php"; ?>
 
 <div class="container my-2">
-    <h2><?php echo $editMode ? "Edit Barang" : "List of Barang"; ?></h2>
+    <h2><?php echo $editMode ? "Edit Barang" : "Daftar Barang"; ?></h2>
     <?php if (!$editMode): ?>
-        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/create.php" role="button">New Barang</a>
+        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/create.php" role="button"><i class="fas fa-plus"></i>New Barang</a>
         <br><br>
 
         <!-- Form Pencarian -->
         <form method="get" action="">
             <div class="input-group mb-2">
-                <input  style="max-width: fit-content;" type="text" class="form-control" placeholder="Search by Kode Barang or Nama Barang" name="search" id="search" value="<?php echo htmlspecialchars($searchTerm); ?>">
+                <input  style="max-width: fit-content;" type="text" class="form-control" placeholder="Search Kode Barang or Nama Barang" name="search" id="search" value="<?php echo htmlspecialchars($searchTerm); ?>">
                 <button style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" style="max-width: fit-content;" class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>

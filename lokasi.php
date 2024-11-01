@@ -112,10 +112,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_POST
 <?php require "./navbar.php"; ?>
 
 <div class="container my-5">
-    <h2><?php echo $editMode ? "Edit Lokasi" : "List of Lokasi"; ?></h2>
+    <h2><?php echo $editMode ? "Edit Lokasi" : "Daftar Lokasi"; ?></h2>
 
     <?php if (!$editMode): ?>
-        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createlokasi.php" role="button">New Lokasi</a>
+        <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="btn btn-primary" href="/inventori/createlokasi.php" role="button"><i class="fas fa-plus"></i>New Lokasi</a>
         <br><br>
         <form method="get" action="">
             <div class="input-group mb-3" style="max-width:fit-content;">
