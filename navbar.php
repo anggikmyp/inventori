@@ -13,12 +13,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
+    <img src="assets/image/yusen-logistics.png" class="image" alt="Sample Image" style="max-height: 50px;"> <!-- Membatasi tinggi gambar -->
+    
+    <!-- Tombol Navbar untuk tampilan responsif -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <img src="assets/image/yusen-logistics.png" class="image" alt="Sample Image">
 
-    <div class="navv" id="navbarNav">
+    <!-- Menu Navbar dengan posisi di sebelah kanan -->
+    <div class="collapse navbar-collapse ms-auto" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="masterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,7 +60,7 @@
       $(this).dropdown('toggle'); // Toggle dropdown
     });
 
-    // Jika Anda ingin menutup dropdown ketika area di luar diklik
+    // Menutup dropdown ketika klik di luar dropdown
     $(document).on('click', function(event) {
       if (!$(event.target).closest('#masterDropdown').length) {
         $('.dropdown-menu').removeClass('show'); // Menutup dropdown
