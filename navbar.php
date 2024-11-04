@@ -21,8 +21,8 @@
     </button>
 
     <!-- Menu Navbar dengan posisi di sebelah kanan -->
-    <div class="collapse navbar-collapse ms-auto" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="masterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             MASTER
