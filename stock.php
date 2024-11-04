@@ -196,7 +196,7 @@ require "./navbar.php";
 <form method="get" action="">
     <div class="input-group mb-3" style="max-width:fit-content;">
         <!-- Select Kategori -->
-        <select style="background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;"> class="form-select" name="kategori" id="kategori" onchange="this.form.submit()">
+        <select style="background-color: #f8f9fa; border-color: #ced4da; padding: 8px; font-size: 14px; color: #495057;" class="form-select" name="kategori" id="kategori" onchange="this.form.submit()">
             <option value="">Pilih Kategori</option>
             <?php while ($kategori = $result_kategori->fetch_assoc()): ?>
                 <option value="<?php echo $kategori['id']; ?>" <?php echo ($kategori_id == $kategori['id']) ? 'selected' : ''; ?>>
