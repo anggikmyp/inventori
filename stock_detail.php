@@ -208,12 +208,19 @@ $result_lokasi = $connection->query($sql_lokasi);
     </tbody>
     </table>
 
+<!-- Table (your existing table code) -->
+<table class="table">
+    <!-- Table content goes here -->
+</table>
+
+<!-- Container for Pagination and Back Button below the table -->
+<div class="d-flex justify-content-start align-items-center mt-4">
     <!-- Pagination -->
     <nav aria-label="Page navigation">
-        <ul class="pagination">
+        <ul class="pagination mb-0">
             <?php if ($page > 1): ?>
                 <li class="page-item">
-                    <a class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $page - 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Previous">
+                    <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $page - 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -221,19 +228,28 @@ $result_lokasi = $connection->query($sql_lokasi);
 
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                 <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
-                    <a class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $i; ?>&search=<?php echo urlencode($searchTerm); ?>"><?php echo $i; ?></a>
+                    <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $i; ?>&search=<?php echo urlencode($searchTerm); ?>"><?php echo $i; ?></a>
                 </li>
             <?php endfor; ?>
 
             <?php if ($page < $total_pages): ?>
                 <li class="page-item">
-                    <a class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $page + 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Next">
+                    <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" class="page-link" href="?stock_id=<?php echo htmlspecialchars($stock_id); ?>&page=<?php echo $page + 1; ?>&search=<?php echo urlencode($searchTerm); ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
             <?php endif; ?>
         </ul>
     </nav>
+
+    <!-- Back Button aligned right next to the pagination -->
+    <a style="box-shadow: 2px 2px 2px rgba(0,0,0,5);" href="stock.php" class="btn btn-outline-primary ms-3">Kembali</a>
+</div>
+
+
+
+
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
